@@ -27,6 +27,7 @@ protected:
     GraphicDoubleNode<T> * current = nullptr;
     int length = 0;
     int recursivePrintGraphical(GraphicDoubleNode<T> * _root, int x, int y, sf::RenderWindow & window, const sf::Font & font);
+    void drawNodeConnection(GraphicDoubleNode<T> * node,GraphicDoubleNode<T> * nextNode,sf::RenderWindow & window);
 public:
     ~GraphicDoubleLinkedList();
     GraphicDoubleLinkedList () {}
@@ -523,9 +524,14 @@ int GraphicDoubleLinkedList<T>::recursivePrintGraphical(GraphicDoubleNode<T> * n
         if(node->getNext())
         {
             recursivePrintGraphical(static_cast<GraphicDoubleNode<T>*>(node->getNext()), x+V_OFFSET,y, window, font);
-            //drawNodeConnection(node,node->getNext(),window);
+            drawNodeConnection(node,node->getNext(),window);
         }
         return x + V_OFFSET;
     }
     return 0;
+}
+template<class T>
+void GraphicDoubleLinkedList<T>::drawNodeConnection(GraphicDoubleNode<T> * node,GraphicDoubleNode<T> * nextNode,sf::RenderWindow & window)
+{
+    
 }
