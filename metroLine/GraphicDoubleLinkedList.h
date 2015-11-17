@@ -27,7 +27,7 @@ protected:
     GraphicDoubleNode<T> * current = nullptr;
     int length = 0;
     int recursivePrintGraphical(GraphicDoubleNode<T> * _root, int x, int y, sf::RenderWindow & window, const sf::Font & font);
-    void drawNodeConnection(GraphicDoubleNode<T> * node,GraphicDoubleNode<T> * nextNode,sf::RenderWindow & window);
+    void drawConnections(GraphicDoubleNode<T> * first,GraphicDoubleNode<T> * second, sf::RenderWindow & window);
 public:
     ~GraphicDoubleLinkedList();
     GraphicDoubleLinkedList () {}
@@ -523,15 +523,23 @@ int GraphicDoubleLinkedList<T>::recursivePrintGraphical(GraphicDoubleNode<T> * n
         node->draw(window);
         if(node->getNext())
         {
+            
+            drawConnections(node,node->getNext(),window);
             recursivePrintGraphical(static_cast<GraphicDoubleNode<T>*>(node->getNext()), x+V_OFFSET,y, window, font);
-            drawNodeConnection(node,node->getNext(),window);
         }
         return x + V_OFFSET;
     }
     return 0;
 }
-template<class T>
-void GraphicDoubleLinkedList<T>::drawNodeConnection(GraphicDoubleNode<T> * node,GraphicDoubleNode<T> * nextNode,sf::RenderWindow & window)
+template <class T>
+void GraphicDoubleLinkedList<T>::drawConnections(GraphicDoubleNode<T> * first,GraphicDoubleNode<T> * second, sf::RenderWindow & window)
 {
-    
+    sf::VertexArray connector(sf::Lines,2);
+    sf::Vector2f startPosition = first->getPosition();
+    startPosition.x += CIRCLE_RADIUS;
+    connector[0].position = startPosition;
+    connector[1].position = second->getPosition();
+    connector[0].color = sf::Color::Black;
+    connector[1].color = sf::Color::Black;
+    window.draw(connector);
 }
