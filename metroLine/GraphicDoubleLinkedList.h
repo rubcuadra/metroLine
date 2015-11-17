@@ -16,7 +16,7 @@
 #define DEBUG
 #define CIRCLE_RADIUS 20
 #define H_OFFSET 60
-#define V_OFFSET 120
+#define V_OFFSET 100
 
 template <class T>
 class GraphicDoubleLinkedList
@@ -83,7 +83,6 @@ void GraphicDoubleLinkedList<T>::insertTail(GraphicDoubleNode<T> * new_item)
     // Increment the size of the list
     this->length++;
 }
-
 
 template <class T>
 void GraphicDoubleLinkedList<T>::insertTail(const T & data)
@@ -503,3 +502,11 @@ int GraphicDoubleLinkedList<T>::recursivePrintGraphical(GraphicDoubleNode<T> * n
     }
     return 0;
 }
+/*
+ sf::Text text;
+ text.setFont(font);
+ text.setString("Metro Map ITESM CSF");
+ text.setCharacterSize(24);
+ text.setColor(sf::Color::Black);
+ text.setPosition(30, 30);
+*/
