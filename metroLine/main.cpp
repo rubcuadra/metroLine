@@ -26,6 +26,7 @@ void main_menu()
     char ans = 'a';
     while (ans != 'q')
     {
+        std::cout << resourcePath() << std::endl;
         std::cout << "\nAVL TREE MENU" << std::endl;
         std::cout << "\ta. Add new number" << std::endl;
         std::cout << "\tr. Remove a number" << std::endl;

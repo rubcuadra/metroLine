@@ -10,6 +10,8 @@
 #include <iostream>
 #include <iomanip>
 #include "GraphicNode.h"
+#include "ResourcePath.hpp"
+
 //#include "Queue.h"
 
 #define DEBUG
@@ -138,7 +140,7 @@ void GraphicAVLTree<T>::printGraphical()
     // Create a font
     sf::Font font;
 	// Load the font
-	if (!font.loadFromFile("Akashi.ttf"))
+    if (!font.loadFromFile(resourcePath() + "Akashi.ttf"))
 	//if (!font.loadFromFile("heavy_data.ttf"))
 	{
 		std::cout << "Could not load font!\n" << std::endl;
