@@ -437,9 +437,10 @@ void GraphicDoubleLinkedList<T>::printList()
     item = this->head;
     while (item != nullptr)
     {
-        std::cout << "Item " << counter++ << " = " << item->getData() << std::endl;
+        std::cout <<item->getData()<<"\t";
         item = static_cast<GraphicDoubleNode<T>*>(item->getNext());
     }
+    std::cout <<"\n";
 }
 
 template <class T>
@@ -466,9 +467,10 @@ template <class T>
 void GraphicDoubleLinkedList<T>::printGraphical()
 {
     if (this->length == 0)
+    {
         std::cout<<"Empty Metro\n";
         return;
-    
+    }
     sf::RenderWindow window(sf::VideoMode(800, 600), "Metro Lines");
     window.setKeyRepeatEnabled(false);
     sf::Font font;
@@ -487,6 +489,7 @@ void GraphicDoubleLinkedList<T>::printGraphical()
                 case sf::Event::KeyPressed:
                     if (event.key.code == sf::Keyboard::Space)
                     {
+                        std::cout<<"Space\n";
                         //Recursive MUST color the actual node, here we move "current" to next()
                     }
                     break;
