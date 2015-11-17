@@ -470,6 +470,7 @@ void GraphicDoubleLinkedList<T>::printGraphical()
         return;
     
     sf::RenderWindow window(sf::VideoMode(800, 600), "Metro Lines");
+    window.setKeyRepeatEnabled(false);
     sf::Font font;
     if (!font.loadFromFile("sansation.ttf"))
         std::cout << "Could not load font!\n" << std::endl;
@@ -484,6 +485,12 @@ void GraphicDoubleLinkedList<T>::printGraphical()
                     window.close();
                     break;
                 case sf::Event::KeyPressed:
+                    if (event.key.code == sf::Keyboard::Space)
+                    {
+                        //Recursive MUST color the actual node, here we move "current" to next()
+                    }
+                    break;
+                case sf::Event::KeyReleased:
                     break;
                 default:
                     break;
@@ -502,7 +509,7 @@ int GraphicDoubleLinkedList<T>::recursivePrintGraphical(GraphicDoubleNode<T> * n
 {
     if(node != nullptr)
     {
-        node->configure(font, sf::Color::Blue, CIRCLE_RADIUS);
+        node->configure(font, sf::Color::Green, CIRCLE_RADIUS);
         node->setPosition(sf::Vector2f(x, y));
         node->draw(window);
         if(node->getNext())
