@@ -37,8 +37,9 @@ int GUIChoice()
 
 void main_menu()
 {
-    GraphicDoubleLinkedList<int> lineOne;
-    int num, choice;
+    GraphicDoubleLinkedList<std::string> lineOne;
+    std::string station;
+    int choice;
     do
     {
         choice = GUIChoice();
@@ -46,8 +47,8 @@ void main_menu()
         {
             case 'a':
                 std::cout << "Enter the Station to add: ";
-                std::cin >> num;
-                lineOne.insertTail(num);
+                std::cin >> station;
+                lineOne.insertTail(station);
                 break;
             case 'b': //Remove Station
                 break;
@@ -76,117 +77,3 @@ int main()
     main_menu();
     return 0;
 }
-
-/*
- 
- 
- 
- else if (ans == 'r')
- {
- std::cout << "Enter the number to remove: ";
- std::cin >> num;
- num_tree.remove(num);
- }
- else if (ans == 's')
- {
- std::cout << "Enter the number to search for: ";
- std::cin >> num;
- if (num_tree.search(num))
- std::cout << "Found " << num << " in the tree" << std::endl;
- else
- std::cout << num << " is not in the tree" << std::endl;
- }
- else if (ans == 'f')
- {
- //int data[] = { 15, 7, 9, 20, 37, 3, 10, 17, 22, 12, 14, 13, 25, 34, 30, 2, 6, 11 };
- int data[] = { 10, 20, 30, 40, 50, 60, 70, 80, 90, 100 };
- int size = sizeof data / sizeof data[0];
- for (int i = 0; i < size; i++)
- {
- num_tree.insertNode(data[i]);
- }
- }
- else if (ans == 'c')
- {
- num_tree.clear();
- }
- else if (ans == 'i')
- {
- num_tree.printInorder();
- }
- //else if (ans == 'b')
- //{
- //num_tree.printBreadthFirst();
- //}
- 
- else if (ans == 'g')
- {
- num_tree.printGraphical();
- }
- else if (ans == 'q')
- {
- std::cout << "Good bye!" << std::endl;
- }
-
- }
- }
-
- 
- 
- Gilberto Echeverria
- 
- Test of the Double Linked List data structure
- 
- #include <iostream>
- #include "DoubleLinkedList.h"
- 
- // Function prototypes
-
- char option = 'a';
- int value;
- bool found;
- DoubleLinkedList<int> double_list;
- 
- while (option != 'q')
- {
- std::cout << "Main menu:" << std::endl;
- std::cout << "\ta. Insert item" << std::endl;
- std::cout << "\tb. Search for item" << std::endl;
- std::cout << "\tc. Print list" << std::endl;
- std::cout << "\td. Print current item" << std::endl;
- std::cout << "\tq. Quit the program" << std::endl;
- std::cout << "Select an option: ";
- std::cin >> option;
- 
- if (option == 'a')
- {
- std::cout << "Enter value to insert: ";
- std::cin >> value;
- double_list.insertOrdered(value);
- }
- else if (option == 'b')
- {
- found = false;
- std::cout << "Enter value to search for: ";
- std::cin >> value;
- found = double_list.searchFor(value);
- if (found)
- {
- std::cout << "Item found in the list" << std::endl;
- }
- else
- {
- std::cout << "No such item in the list" << std::endl;
- }
- }
- else if (option == 'c')
- {
- double_list.printList();
- }
- else if (option == 'd')
- {
- std::cout << double_list.getCurrent()->getData() << std::endl;
- }
-
- */
-

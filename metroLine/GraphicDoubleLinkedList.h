@@ -15,7 +15,7 @@
 
 #define DEBUG
 #define CIRCLE_RADIUS 20
-#define H_OFFSET 60
+#define H_OFFSET 300
 #define V_OFFSET 100
 
 template <class T>
@@ -474,6 +474,12 @@ void GraphicDoubleLinkedList<T>::printGraphical()
     sf::RenderWindow window(sf::VideoMode(800, 600), "Metro Lines");
     window.setKeyRepeatEnabled(false);
     sf::Font font;
+    sf::Text text;
+    text.setFont(font);
+    text.setString("CDMX Metro Map\n Press Space to move trains");
+    text.setCharacterSize(24);
+    text.setColor(sf::Color::Black);
+    text.setPosition(30, 30);
     if (!font.loadFromFile("sansation.ttf"))
         std::cout << "Could not load font!\n" << std::endl;
     while (window.isOpen())
@@ -498,11 +504,10 @@ void GraphicDoubleLinkedList<T>::printGraphical()
                 default:
                     break;
             }
-
         }
-        
         window.clear(sf::Color::White);
-        recursivePrintGraphical(this->head, 50, 50, window, font);
+        window.draw(text);
+        recursivePrintGraphical(this->head, 50,200, window, font);
         window.display();
     }
 }
@@ -516,16 +521,11 @@ int GraphicDoubleLinkedList<T>::recursivePrintGraphical(GraphicDoubleNode<T> * n
         node->setPosition(sf::Vector2f(x, y));
         node->draw(window);
         if(node->getNext())
+        {
             recursivePrintGraphical(static_cast<GraphicDoubleNode<T>*>(node->getNext()), x+V_OFFSET,y, window, font);
+            //drawNodeConnection(node,node->getNext(),window);
+        }
         return x + V_OFFSET;
     }
     return 0;
 }
-/*
- sf::Text text;
- text.setFont(font);
- text.setString("Metro Map ITESM CSF");
- text.setCharacterSize(24);
- text.setColor(sf::Color::Black);
- text.setPosition(30, 30);
-*/
