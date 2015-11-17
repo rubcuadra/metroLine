@@ -17,6 +17,13 @@
 		4500E2711BFB762B00BF324D /* nice_music.ogg */ = {isa = PBXFileReference; lastKnownFileType = file; path = nice_music.ogg; sourceTree = "<group>"; };
 		4500E2721BFB762B00BF324D /* sansation.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = sansation.ttf; sourceTree = "<group>"; };
 		4500E2731BFB762B00BF324D /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
+		4500E2861BFB820100BF324D /* Akashi.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Akashi.ttf; sourceTree = "<group>"; };
+		4500E2871BFB820100BF324D /* heavy_data.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = heavy_data.ttf; sourceTree = "<group>"; };
+		4500E2881BFB820100BF324D /* SpaceMegaforce_Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SpaceMegaforce_Icon.png; sourceTree = "<group>"; };
+		4500E2891BFB820100BF324D /* AVLTree.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AVLTree.h; sourceTree = "<group>"; };
+		4500E28B1BFB820100BF324D /* TreeNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TreeNode.h; sourceTree = "<group>"; };
+		4500E28D1BFB820100BF324D /* GraphicNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GraphicNode.h; sourceTree = "<group>"; };
+		4500E28E1BFB820100BF324D /* GraphicAVLTree.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GraphicAVLTree.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -50,6 +57,13 @@
 			isa = PBXGroup;
 			children = (
 				4500E26D1BFB762B00BF324D /* main.cpp */,
+				4500E2861BFB820100BF324D /* Akashi.ttf */,
+				4500E2871BFB820100BF324D /* heavy_data.ttf */,
+				4500E2881BFB820100BF324D /* SpaceMegaforce_Icon.png */,
+				4500E2891BFB820100BF324D /* AVLTree.h */,
+				4500E28B1BFB820100BF324D /* TreeNode.h */,
+				4500E28D1BFB820100BF324D /* GraphicNode.h */,
+				4500E28E1BFB820100BF324D /* GraphicAVLTree.h */,
 				4500E2701BFB762B00BF324D /* cute_image.jpg */,
 				4500E2711BFB762B00BF324D /* nice_music.ogg */,
 				4500E2721BFB762B00BF324D /* sansation.ttf */,
