@@ -1,4 +1,3 @@
-
 //
 // Disclamer:
 // ----------
@@ -13,7 +12,6 @@
 // - Fill the text field with the folder path containing your resources;
 //        (e.g. your project folder)
 // - Click OK.
-//
 
 #include <SFML/Audio.hpp>
 #include <SFML/Graphics.hpp>

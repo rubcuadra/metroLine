@@ -50,20 +50,12 @@
 			isa = PBXGroup;
 			children = (
 				4500E26D1BFB762B00BF324D /* main.cpp */,
-				4500E26F1BFB762B00BF324D /* Resources */,
-			);
-			path = metroLine;
-			sourceTree = "<group>";
-		};
-		4500E26F1BFB762B00BF324D /* Resources */ = {
-			isa = PBXGroup;
-			children = (
 				4500E2701BFB762B00BF324D /* cute_image.jpg */,
 				4500E2711BFB762B00BF324D /* nice_music.ogg */,
 				4500E2721BFB762B00BF324D /* sansation.ttf */,
 				4500E2731BFB762B00BF324D /* icon.png */,
 			);
-			name = Resources;
+			path = metroLine;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -255,6 +247,7 @@
 				4500E2781BFB762B00BF324D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
