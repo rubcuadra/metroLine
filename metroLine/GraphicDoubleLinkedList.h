@@ -7,16 +7,10 @@
 //
 
 #pragma once 
-/* GraphicDoubleLinkedList_h */
 #include <iostream>
 #include <iomanip>
 #include "GraphicDoubleNode.h"
-//#include "Queue.h"
-
-#define DEBUG
 #define CIRCLE_RADIUS 20
-#define H_OFFSET 300
-#define V_OFFSET 100
 
 template <class T>
 class GraphicDoubleLinkedList
@@ -494,7 +488,6 @@ int GraphicDoubleLinkedList<T>::recursivePrintGraphical(GraphicDoubleNode<T> * n
     if(node != nullptr)
     {
         node->configure(font, current==node?sf::Color::Yellow:color, CIRCLE_RADIUS);
-        //node->setPosition(sf::Vector2f(x, y));
         node->draw(window);
         if(node->getNext())
         {
