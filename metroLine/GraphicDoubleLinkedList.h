@@ -499,9 +499,7 @@ void GraphicDoubleLinkedList<T>::printGraphical()
                         if(goingForward)
                         {
                             if(current->getNext())
-                            {
                                 current = current->getNext();
-                            }
                             else
                             {
                                 goingForward= !goingForward;
