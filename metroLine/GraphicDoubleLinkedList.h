@@ -22,17 +22,16 @@ template <class T>
 class GraphicDoubleLinkedList
 {
 protected:
-    bool goingForward = true;
+    bool goingForward;
     GraphicDoubleNode<T> * head = nullptr;
     GraphicDoubleNode<T> * tail = nullptr;
     GraphicDoubleNode<T> * current = nullptr;
     int length = 0;
-    int recursivePrintGraphical(GraphicDoubleNode<T> * _root, sf::RenderWindow & window, const sf::Font & font);
     void drawConnections(GraphicDoubleNode<T> * first,GraphicDoubleNode<T> * second, sf::RenderWindow & window);
 public:
     ~GraphicDoubleLinkedList();
-    GraphicDoubleLinkedList () {}
-    GraphicDoubleLinkedList (GraphicDoubleNode<T> * item) { head = item; }
+    GraphicDoubleLinkedList () {goingForward=true;}
+    GraphicDoubleLinkedList (GraphicDoubleNode<T> * item) { head = item; goingForward=true;current = head;}
     int getLength() { return this->length; }
     int getPositionOf(GraphicDoubleNode<T> * item);
     GraphicDoubleNode<T> * getHead() { return this->head; }
@@ -54,9 +53,33 @@ public:
     bool searchFor(const T & data);
     void printList();
     void clear();
-    void printGraphical();
+    void moveCurrent();
+    int recursivePrintGraphical(GraphicDoubleNode<T> * node, sf::RenderWindow & window, const sf::Font & font);
 };
-
+template <class T>
+void GraphicDoubleLinkedList<T>::moveCurrent()
+{
+    if(goingForward)
+    {
+        if(current->getNext())
+            current = current->getNext();
+        else
+        {
+            goingForward= !goingForward;
+            current = current->getPrevious();
+        }
+    }
+    else //GOING BACKWARDS
+    {
+        if(current->getPrevious())
+            current=current->getPrevious();
+        else
+        {
+            goingForward = !goingForward;
+            current= current->getNext();
+        }
+    }
+}
 template <class T>
 GraphicDoubleLinkedList<T>::~GraphicDoubleLinkedList()
 {
@@ -75,6 +98,7 @@ void GraphicDoubleLinkedList<T>::insertTail(GraphicDoubleNode<T> * new_item)
     {
         this->head = new_item;
         this->tail = new_item;
+        current = head;
     }
     else
     {
@@ -460,76 +484,6 @@ void GraphicDoubleLinkedList<T>::clear()
     }
     this->length = 0;
     this->head = nullptr;
-}
-
-template <class T>
-void GraphicDoubleLinkedList<T>::printGraphical()
-{
-    if (this->length == 0)
-    {
-        std::cout<<"Empty Metro\n";
-        return;
-    }
-    if (this->current == nullptr)
-        this->current = this->head;
-    sf::RenderWindow window(sf::VideoMode(800, 600), "Metro Lines");
-    window.setKeyRepeatEnabled(false);
-    sf::Font font;
-    sf::Text text;
-    text.setFont(font);
-    text.setString("CDMX Metro Map\n Press Space to move trains");
-    text.setCharacterSize(12);
-    text.setColor(sf::Color::Black);
-    text.setPosition(30, 30);
-    if (!font.loadFromFile("sansation.ttf"))
-        std::cout << "Could not load font!\n" << std::endl;
-    while (window.isOpen())
-    {
-        sf::Event event;
-        while (window.pollEvent(event))
-        {
-            switch (event.type)
-            {
-                case sf::Event::Closed:
-                    window.close();
-                    break;
-                case sf::Event::KeyPressed:
-                    if (event.key.code == sf::Keyboard::Space)
-                    {
-                        if(goingForward)
-                        {
-                            if(current->getNext())
-                                current = current->getNext();
-                            else
-                            {
-                                goingForward= !goingForward;
-                                current = current->getPrevious();
-                            }
-                        }
-                        else //GOING BACKWARDS
-                        {
-                            if(current->getPrevious())
-                                current=current->getPrevious();
-                            else
-                            {
-                                goingForward = !goingForward;
-                                current= current->getNext();
-                            }
-                                
-                        }
-                    }
-                    break;
-                case sf::Event::KeyReleased:
-                    break;
-                default:
-                    break;
-            }
-        }
-        window.clear(sf::Color::White);
-        window.draw(text);
-        recursivePrintGraphical(this->head,window, font);
-        window.display();
-    }
 }
 
 template <class T>
