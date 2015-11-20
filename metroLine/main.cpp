@@ -23,7 +23,7 @@ int GUIChoice()
 {
     std::string ans = "0";
     std::cout << "Metro lines Menu" << std::endl;
-    std::cout << "\ta. Add Station" << std::endl;
+    //std::cout << "\ta. Add Station" << std::endl;
     std::cout << "\tb. Remove Station" << std::endl;
     std::cout << "\tc. Search for a Station" << std::endl;
     std::cout << "\td. Clear Line" << std::endl;
@@ -39,17 +39,15 @@ void main_menu()
 {
     GraphicDoubleLinkedList<std::string> lineOne;
     std::string station;
+    lineOne.insertTail(new GraphicDoubleNode<std::string>("Sevilla", *new sf::Vector2f(100,150)));
+    lineOne.insertTail(new GraphicDoubleNode<std::string>("Hidalgo", *new sf::Vector2f(150,130)));
+    lineOne.insertTail(new GraphicDoubleNode<std::string>("Pino Suarez", *new sf::Vector2f(200,190)));
     int choice;
     do
     {
         choice = GUIChoice();
         switch (choice)
         {
-            case 'a':
-                std::cout << "Enter the Station to add: ";
-                std::cin >> station;
-                lineOne.insertTail(station);
-                break;
             case 'b': //Remove Station
                 break;
             case 'c': //SearchForStation

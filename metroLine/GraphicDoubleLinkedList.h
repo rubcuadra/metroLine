@@ -22,11 +22,13 @@ template <class T>
 class GraphicDoubleLinkedList
 {
 protected:
+    bool goingForward = true;
     GraphicDoubleNode<T> * head = nullptr;
     GraphicDoubleNode<T> * tail = nullptr;
     GraphicDoubleNode<T> * current = nullptr;
     int length = 0;
-    int recursivePrintGraphical(GraphicDoubleNode<T> * _root, int x, int y, sf::RenderWindow & window, const sf::Font & font);
+    int recursivePrintGraphical(GraphicDoubleNode<T> * _root, sf::RenderWindow & window, const sf::Font & font);
+    void drawConnections(GraphicDoubleNode<T> * first,GraphicDoubleNode<T> * second, sf::RenderWindow & window);
 public:
     ~GraphicDoubleLinkedList();
     GraphicDoubleLinkedList () {}
@@ -460,9 +462,6 @@ void GraphicDoubleLinkedList<T>::clear()
     this->head = nullptr;
 }
 
-
-
-
 template <class T>
 void GraphicDoubleLinkedList<T>::printGraphical()
 {
@@ -471,13 +470,15 @@ void GraphicDoubleLinkedList<T>::printGraphical()
         std::cout<<"Empty Metro\n";
         return;
     }
+    if (this->current == nullptr)
+        this->current = this->head;
     sf::RenderWindow window(sf::VideoMode(800, 600), "Metro Lines");
     window.setKeyRepeatEnabled(false);
     sf::Font font;
     sf::Text text;
     text.setFont(font);
     text.setString("CDMX Metro Map\n Press Space to move trains");
-    text.setCharacterSize(24);
+    text.setCharacterSize(12);
     text.setColor(sf::Color::Black);
     text.setPosition(30, 30);
     if (!font.loadFromFile("sansation.ttf"))
@@ -495,8 +496,27 @@ void GraphicDoubleLinkedList<T>::printGraphical()
                 case sf::Event::KeyPressed:
                     if (event.key.code == sf::Keyboard::Space)
                     {
-                        std::cout<<"Space\n";
-                        //Recursive MUST color the actual node, here we move "current" to next()
+                        if(goingForward)
+                        {
+                            if(current->getNext())
+                                current = current->getNext();
+                            else
+                            {
+                                goingForward= !goingForward;
+                                current = current->getPrevious();
+                            }
+                        }
+                        else //GOING BACKWARDS
+                        {
+                            if(current->getPrevious())
+                                current=current->getPrevious();
+                            else
+                            {
+                                goingForward = !goingForward;
+                                current= current->getNext();
+                            }
+                                
+                        }
                     }
                     break;
                 case sf::Event::KeyReleased:
@@ -507,25 +527,37 @@ void GraphicDoubleLinkedList<T>::printGraphical()
         }
         window.clear(sf::Color::White);
         window.draw(text);
-        recursivePrintGraphical(this->head, 50,200, window, font);
+        recursivePrintGraphical(this->head,window, font);
         window.display();
     }
 }
 
 template <class T>
-int GraphicDoubleLinkedList<T>::recursivePrintGraphical(GraphicDoubleNode<T> * node, int x, int y, sf::RenderWindow & window, const sf::Font & font)
+int GraphicDoubleLinkedList<T>::recursivePrintGraphical(GraphicDoubleNode<T> * node, sf::RenderWindow & window, const sf::Font & font)
 {
     if(node != nullptr)
     {
-        node->configure(font, sf::Color::Green, CIRCLE_RADIUS);
-        node->setPosition(sf::Vector2f(x, y));
+        node->configure(font, current==node?sf::Color::Yellow:sf::Color::Green, CIRCLE_RADIUS);
+        //node->setPosition(sf::Vector2f(x, y));
         node->draw(window);
         if(node->getNext())
         {
-            recursivePrintGraphical(static_cast<GraphicDoubleNode<T>*>(node->getNext()), x+V_OFFSET,y, window, font);
-            //drawNodeConnection(node,node->getNext(),window);
+            drawConnections(node,node->getNext(),window);
+            recursivePrintGraphical(static_cast<GraphicDoubleNode<T>*>(node->getNext()), window, font);
         }
-        return x + V_OFFSET;
+        return 1;
     }
     return 0;
+}
+template <class T>
+void GraphicDoubleLinkedList<T>::drawConnections(GraphicDoubleNode<T> * first,GraphicDoubleNode<T> * second, sf::RenderWindow & window)
+{
+    sf::VertexArray connector(sf::Lines,2);
+    sf::Vector2f startPosition = first->getPosition();
+    startPosition.x += CIRCLE_RADIUS;
+    connector[0].position = startPosition;
+    connector[1].position = second->getPosition();
+    connector[0].color = sf::Color::Black;
+    connector[1].color = sf::Color::Black;
+    window.draw(connector);
 }
