@@ -25,6 +25,7 @@ public:
     ~GraphicDoubleNode();
     GraphicDoubleNode(const T & _data);
     GraphicDoubleNode(const T & _data,const sf::Vector2f & _position);
+    GraphicDoubleNode(const T & _data,const sf::Vector2f & _position,sf::Color color);
     GraphicDoubleNode(const T & _data, const sf::Font & _font, sf::Color _color = sf::Color::Yellow, int _radius = 50);
     void configure(const T & _data, const sf::Font & _font, sf::Color _color = sf::Color::Yellow, int _radius = 50);
     void configure(const sf::Font & _font, sf::Color _color = sf::Color::Yellow, int _radius = 50);
@@ -52,6 +53,13 @@ GraphicDoubleNode<T>::GraphicDoubleNode(const T & _data,const sf::Vector2f & _po
 {
     this->setData(_data);
     this->setPosition(_position);
+}
+template <class T>
+GraphicDoubleNode<T>::GraphicDoubleNode(const T & _data,const sf::Vector2f & _position,sf::Color color)
+{
+    this->setData(_data);
+    this->setPosition(_position);
+    //circle.setFillColor(color);
 }
 template <class T>
 GraphicDoubleNode<T>::GraphicDoubleNode(const T & _data)

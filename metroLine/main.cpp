@@ -84,8 +84,8 @@ int GUIChoice()
 
 void main_menu()
 {
-    GraphicDoubleLinkedList<std::string> lineOne;
-    GraphicDoubleLinkedList<std::string> lineTwo;
+    GraphicDoubleLinkedList<std::string> lineOne(sf::Color::Magenta);
+    GraphicDoubleLinkedList<std::string> lineTwo(sf::Color::Green);
     
     lineOne.insertTail(new GraphicDoubleNode<std::string>("Sevilla", *new sf::Vector2f(100,150)));
     lineOne.insertTail(new GraphicDoubleNode<std::string>("Hidalgo", *new sf::Vector2f(150,130)));
@@ -115,9 +115,7 @@ void main_menu()
                 break;
             case 'e': //Print Metro Lines
                 for (int i=0; i<totalLines; ++i)
-                {
                     metroCDMX[i].printList();
-                }
                 break;
             case 'f': //Print Metro Map
                 Draw(metroCDMX,totalLines);

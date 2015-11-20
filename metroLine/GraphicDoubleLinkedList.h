@@ -27,10 +27,12 @@ protected:
     GraphicDoubleNode<T> * tail = nullptr;
     GraphicDoubleNode<T> * current = nullptr;
     int length = 0;
+    sf::Color color=sf::Color::Transparent;
     void drawConnections(GraphicDoubleNode<T> * first,GraphicDoubleNode<T> * second, sf::RenderWindow & window);
 public:
     ~GraphicDoubleLinkedList();
     GraphicDoubleLinkedList () {goingForward=true;}
+    GraphicDoubleLinkedList (sf::Color c) {color = c;goingForward=true;}
     GraphicDoubleLinkedList (GraphicDoubleNode<T> * item) { head = item; goingForward=true;current = head;}
     int getLength() { return this->length; }
     int getPositionOf(GraphicDoubleNode<T> * item);
@@ -491,7 +493,7 @@ int GraphicDoubleLinkedList<T>::recursivePrintGraphical(GraphicDoubleNode<T> * n
 {
     if(node != nullptr)
     {
-        node->configure(font, current==node?sf::Color::Yellow:sf::Color::Green, CIRCLE_RADIUS);
+        node->configure(font, current==node?sf::Color::Yellow:color, CIRCLE_RADIUS);
         //node->setPosition(sf::Vector2f(x, y));
         node->draw(window);
         if(node->getNext())
@@ -511,7 +513,7 @@ void GraphicDoubleLinkedList<T>::drawConnections(GraphicDoubleNode<T> * first,Gr
     startPosition.x += CIRCLE_RADIUS;
     connector[0].position = startPosition;
     connector[1].position = second->getPosition();
-    connector[0].color = sf::Color::Black;
-    connector[1].color = sf::Color::Black;
+    connector[0].color = this->color;
+    connector[1].color = this->color;
     window.draw(connector);
 }
