@@ -88,7 +88,7 @@ std::vector<std::string> parseStations()
 {
     std::vector<std::string> stations;
     std::vector<std::string> aux;
-    std::string filename = "/Users/luisgaji/Code/ProyectoItesm/stations.txt";
+    std::string filename = "stations.txt";//"/Users/luisgaji/Code/ProyectoItesm/stations.txt";
     //string to represent each line
     std::string line;
     std::ifstream txtfile(filename);
@@ -107,11 +107,7 @@ std::vector<std::string> parseStations()
 
 void main_menu()
 {
-<<<<<<< HEAD
     parseStations();
-    GraphicDoubleLinkedList<std::string> lineOne;
-    std::string station;
-=======
     GraphicDoubleLinkedList<std::string> lineOne(sf::Color::Magenta);
     GraphicDoubleLinkedList<std::string> lineTwo(sf::Color::Green);
     
@@ -129,7 +125,6 @@ void main_menu()
     metroCDMX[0] = lineOne;
     metroCDMX[1] = lineTwo;
 
->>>>>>> 2fe7706dc2efbde3f719f85cd4a74949728618a3
     int choice;
     do
     {
