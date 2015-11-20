@@ -27,7 +27,7 @@ protected:
     GraphicDoubleNode<T> * tail = nullptr;
     GraphicDoubleNode<T> * current = nullptr;
     int length = 0;
-    int recursivePrintGraphical(GraphicDoubleNode<T> * _root, int x, int y, sf::RenderWindow & window, const sf::Font & font);
+    int recursivePrintGraphical(GraphicDoubleNode<T> * _root, sf::RenderWindow & window, const sf::Font & font);
     void drawConnections(GraphicDoubleNode<T> * first,GraphicDoubleNode<T> * second, sf::RenderWindow & window);
 public:
     ~GraphicDoubleLinkedList();
@@ -527,25 +527,25 @@ void GraphicDoubleLinkedList<T>::printGraphical()
         }
         window.clear(sf::Color::White);
         window.draw(text);
-        recursivePrintGraphical(this->head, 50,200, window, font);
+        recursivePrintGraphical(this->head,window, font);
         window.display();
     }
 }
 
 template <class T>
-int GraphicDoubleLinkedList<T>::recursivePrintGraphical(GraphicDoubleNode<T> * node, int x, int y, sf::RenderWindow & window, const sf::Font & font)
+int GraphicDoubleLinkedList<T>::recursivePrintGraphical(GraphicDoubleNode<T> * node, sf::RenderWindow & window, const sf::Font & font)
 {
     if(node != nullptr)
     {
         node->configure(font, current==node?sf::Color::Yellow:sf::Color::Green, CIRCLE_RADIUS);
-        node->setPosition(sf::Vector2f(x, y));
+        //node->setPosition(sf::Vector2f(x, y));
         node->draw(window);
         if(node->getNext())
         {
             drawConnections(node,node->getNext(),window);
-            recursivePrintGraphical(static_cast<GraphicDoubleNode<T>*>(node->getNext()), x+V_OFFSET,y, window, font);
+            recursivePrintGraphical(static_cast<GraphicDoubleNode<T>*>(node->getNext()), window, font);
         }
-        return x + V_OFFSET;
+        return 1;
     }
     return 0;
 }

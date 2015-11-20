@@ -24,6 +24,7 @@ public:
     GraphicDoubleNode() {}
     ~GraphicDoubleNode();
     GraphicDoubleNode(const T & _data);
+    GraphicDoubleNode(const T & _data,const sf::Vector2f & _position);
     GraphicDoubleNode(const T & _data, const sf::Font & _font, sf::Color _color = sf::Color::Yellow, int _radius = 50);
     void configure(const T & _data, const sf::Font & _font, sf::Color _color = sf::Color::Yellow, int _radius = 50);
     void configure(const sf::Font & _font, sf::Color _color = sf::Color::Yellow, int _radius = 50);
@@ -47,18 +48,22 @@ GraphicDoubleNode<T>::~GraphicDoubleNode()
 }
 
 template <class T>
+GraphicDoubleNode<T>::GraphicDoubleNode(const T & _data,const sf::Vector2f & _position)
+{
+    this->setData(_data);
+    this->setPosition(_position);
+}
+template <class T>
 GraphicDoubleNode<T>::GraphicDoubleNode(const T & _data)
 {
     // Store the data for the TreeNode
     this->setData(_data);
 }
-
 template <class T>
 GraphicDoubleNode<T>::GraphicDoubleNode(const T & _data, const sf::Font & _font, sf::Color _color, int _radius)
 {
     configure(_data, _font, _color, _radius);
 }
-
 template <class T>
 void GraphicDoubleNode<T>::configure(const T & _data, const sf::Font & _font, sf::Color _color, int _radius)
 {
@@ -84,7 +89,6 @@ void GraphicDoubleNode<T>::configure(const sf::Font & _font, sf::Color _color, i
     text.setOrigin(textRect.left + textRect.width/2.0f, textRect.top  + textRect.height/2.0f);
     //text.setStyle(sf::Text::Bold | sf::Text::Underlined);
 }
-
 template <class T>
 void GraphicDoubleNode<T>::draw(sf::RenderWindow & _window)
 {
