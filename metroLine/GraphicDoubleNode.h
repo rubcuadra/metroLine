@@ -9,39 +9,69 @@
 #pragma once
 /* GraphicDoubleNode_h */
 #include <SFML/Graphics.hpp>
-#include "DoubleNode.h"
 
 template <class T>
-class GraphicDoubleNode : public DoubleNode<T>
+class GraphicDoubleNode
 {
 private:
     sf::CircleShape circle;
     sf::Text text;
     sf::Vector2f position;
+    T data;
+    GraphicDoubleNode * next = nullptr;
+    GraphicDoubleNode * previous = nullptr;
 public:
     GraphicDoubleNode() {}
+    ~GraphicDoubleNode();
     GraphicDoubleNode(const T & _data);
+    GraphicDoubleNode(const T & _data,const sf::Vector2f & _position);
+    GraphicDoubleNode(const T & _data,const sf::Vector2f & _position,sf::Color color);
     GraphicDoubleNode(const T & _data, const sf::Font & _font, sf::Color _color = sf::Color::Yellow, int _radius = 50);
     void configure(const T & _data, const sf::Font & _font, sf::Color _color = sf::Color::Yellow, int _radius = 50);
     void configure(const sf::Font & _font, sf::Color _color = sf::Color::Yellow, int _radius = 50);
     void draw(sf::RenderWindow & _window);
     void setPosition(const sf::Vector2f & _position);
     sf::Vector2f getPosition();
+    T getData(){return this->data;}
+    void setData(T _item){this->data = _item;}
+    GraphicDoubleNode * getNext(){return this->next;}
+    void setNext(GraphicDoubleNode* next_node){this->next = next_node;}
+    GraphicDoubleNode * getPrevious(){return this->previous;}
+    void setPrevious(GraphicDoubleNode* prev_node){this->previous = prev_node;}
 };
 
+template <class T>
+GraphicDoubleNode<T>::~GraphicDoubleNode()
+{
+    data.~T();
+    next = nullptr;
+    previous = nullptr;
+}
+
+template <class T>
+GraphicDoubleNode<T>::GraphicDoubleNode(const T & _data,const sf::Vector2f & _position)
+{
+    this->setData(_data);
+    this->setPosition(_position);
+}
+template <class T>
+GraphicDoubleNode<T>::GraphicDoubleNode(const T & _data,const sf::Vector2f & _position,sf::Color color)
+{
+    this->setData(_data);
+    this->setPosition(_position);
+    //circle.setFillColor(color);
+}
 template <class T>
 GraphicDoubleNode<T>::GraphicDoubleNode(const T & _data)
 {
     // Store the data for the TreeNode
     this->setData(_data);
 }
-
 template <class T>
 GraphicDoubleNode<T>::GraphicDoubleNode(const T & _data, const sf::Font & _font, sf::Color _color, int _radius)
 {
     configure(_data, _font, _color, _radius);
 }
-
 template <class T>
 void GraphicDoubleNode<T>::configure(const T & _data, const sf::Font & _font, sf::Color _color, int _radius)
 {
@@ -50,7 +80,6 @@ void GraphicDoubleNode<T>::configure(const T & _data, const sf::Font & _font, sf
     // Configure the visual representation
     configure(_font, _color, _radius);
 }
-
 template <class T>
 void GraphicDoubleNode<T>::configure(const sf::Font & _font, sf::Color _color, int _radius)
 {
@@ -68,7 +97,6 @@ void GraphicDoubleNode<T>::configure(const sf::Font & _font, sf::Color _color, i
     text.setOrigin(textRect.left + textRect.width/2.0f, textRect.top  + textRect.height/2.0f);
     //text.setStyle(sf::Text::Bold | sf::Text::Underlined);
 }
-
 template <class T>
 void GraphicDoubleNode<T>::draw(sf::RenderWindow & _window)
 {

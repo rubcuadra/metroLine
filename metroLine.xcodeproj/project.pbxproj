@@ -14,7 +14,6 @@
 		4500E26A1BFB762B00BF324D /* metroLine */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = metroLine; sourceTree = BUILT_PRODUCTS_DIR; };
 		4500E26D1BFB762B00BF324D /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		4500E2721BFB762B00BF324D /* sansation.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = sansation.ttf; sourceTree = "<group>"; };
-		4500E2911BFB878E00BF324D /* DoubleNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DoubleNode.h; sourceTree = "<group>"; };
 		4500E2921BFB878E00BF324D /* DoubleLinkedList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DoubleLinkedList.h; sourceTree = "<group>"; };
 		4500E2941BFB88A800BF324D /* GraphicDoubleNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GraphicDoubleNode.h; sourceTree = "<group>"; };
 		4500E2951BFB895300BF324D /* GraphicDoubleLinkedList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GraphicDoubleLinkedList.h; sourceTree = "<group>"; };
@@ -50,7 +49,6 @@
 		4500E26C1BFB762B00BF324D /* metroLine */ = {
 			isa = PBXGroup;
 			children = (
-				4500E2911BFB878E00BF324D /* DoubleNode.h */,
 				4500E2921BFB878E00BF324D /* DoubleLinkedList.h */,
 				4500E26D1BFB762B00BF324D /* main.cpp */,
 				4500E2721BFB762B00BF324D /* sansation.ttf */,
