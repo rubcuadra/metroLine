@@ -40,6 +40,7 @@ int GUIChoice()
 std::vector<std::string> parseStations()
 {
     std::vector<std::string> stations;
+    std::vector<std::string> aux;
     std::string filename = "/Users/luisgaji/Code/ProyectoItesm/stations.txt";
     //string to represent each line
     std::string line;
@@ -59,6 +60,7 @@ std::vector<std::string> parseStations()
 
 void main_menu()
 {
+    parseStations();
     GraphicDoubleLinkedList<std::string> lineOne;
     std::string station;
     int choice;
