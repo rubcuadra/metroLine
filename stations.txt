@@ -1,23 +1,35 @@
------line-----
-el rosario
-aquiles serdan
-camarones
-refineria
-tacuba
-san joaquin
-polanco
-auditorio
-constituyentes
-tacubaya -c
-san pedro de los pinos
-san antonio
-mixcoac
-barranca del muerto
------line-----
-tacubaya -c
+-Rosa
+observatorio,100,150,
+tacubaya,160,200
+juanacatlan,180,220
+chapultepec,180,320
+sevilla,185,340
+insurgentes,178
+cuauhtemoc
+balderas
+salto del agua
+isabel la catolica
+pino suarez
+merced
+candelaria
+san lazaro
+moctezuma
+balbuena
+puerto aereo
+gomez farias
+zaragoza
+pantitlan
+-Cafe
+tacubaya
 patriotismo
 chilpancingo
 centro medico
 lazaro cardenas
 chabacano
 jamaica
+mixhuca
+velodromo
+ciudad deportiva
+puebla
+pantitlan
+

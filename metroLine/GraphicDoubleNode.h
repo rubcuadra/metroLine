@@ -54,27 +54,26 @@ void GraphicDoubleNode<T>::configure(const T & _data, const sf::Font & _font, sf
 template <class T>
 void GraphicDoubleNode<T>::configure(const sf::Font & _font, sf::Color _color, int _radius)
 {
-    // Configure the circle
     circle.setRadius(_radius);
     circle.setFillColor(_color);
     circle.setOutlineColor(sf::Color::Black);
-    circle.setOutlineThickness(5);
+    circle.setOutlineThickness(1);
     circle.setOrigin(circle.getRadius(), circle.getRadius());
-    // Configure the text object
+    
     text.setFont(_font);
-    text.setCharacterSize(24);
+    text.setCharacterSize(12);
     text.setColor(sf::Color::Black);
-    // Center the origin of the text
+    
     sf::FloatRect textRect = text.getLocalBounds();
     text.setOrigin(textRect.left + textRect.width/2.0f, textRect.top  + textRect.height/2.0f);
-    text.setStyle(sf::Text::Bold | sf::Text::Underlined);
+    //text.setStyle(sf::Text::Bold | sf::Text::Underlined);
 }
 
 template <class T>
 void GraphicDoubleNode<T>::draw(sf::RenderWindow & _window)
 {
     _window.draw(circle);
-    text.setString(std::to_string(this->getData()));
+    text.setString(this->getData());
     _window.draw(text);
 }
 

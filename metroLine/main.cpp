@@ -18,6 +18,8 @@
 #include <iostream>
 #include "GraphicDoubleLinkedList.h"
 #include "GraphicDoubleNode.h"
+#include <fstream>
+
 
 int GUIChoice()
 {
@@ -35,8 +37,30 @@ int GUIChoice()
     return ans.length()==1?ans[0]:'0';
 }
 
+std::vector<std::string> parseStations()
+{
+    std::vector<std::string> stations;
+    std::vector<std::string> aux;
+    std::string filename = "/Users/luisgaji/Code/ProyectoItesm/stations.txt";
+    //string to represent each line
+    std::string line;
+    std::ifstream txtfile(filename);
+    if(txtfile.is_open())
+    {
+        //get each line
+        while(getline(txtfile, line))
+        {
+            std::cout << line << std::endl;
+            stations.push_back(line);
+        }
+        txtfile.close();
+    }
+    return stations;
+}
+
 void main_menu()
 {
+    parseStations();
     GraphicDoubleLinkedList<std::string> lineOne;
     std::string station;
     int choice;
@@ -72,6 +96,7 @@ void main_menu()
         }
     }while (choice != 'q');
 }
+    
 int main()
 {
     main_menu();
