@@ -212,11 +212,15 @@ void main_menu()
         {
             case 'a': //SearchForStation
                 break;
-            case 'b': //Print Metro Lines
+            case 'b': //Print in console
+                std::cout<<"\n";
                 for (int i=0; i<totalLines; ++i)
+                {
+                    std::cout<<"Line "<<std::to_string(i+1)<<":\n";
                     metroCDMX[i].printList();
+                }
                 break;
-            case 'c': //Print Metro Map
+            case 'c': //Print Graphical
                 Draw(metroCDMX,totalLines);
                 break;
             case 'd': //Quit

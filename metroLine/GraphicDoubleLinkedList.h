@@ -455,10 +455,12 @@ void GraphicDoubleLinkedList<T>::printList()
 {
     GraphicDoubleNode<T> * item;
     item = this->head;
+    int counter=1;
     while (item != nullptr)
     {
-        std::cout <<item->getData()<<"\t";
+        std::cout <<"\t"<<std::to_string(counter)<<")"<<item->getData()<<"\n";
         item = static_cast<GraphicDoubleNode<T>*>(item->getNext());
+        ++counter;
     }
     std::cout <<"\n";
 }
