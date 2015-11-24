@@ -102,10 +102,7 @@ int GUIChoice()
 {
     std::string ans = "0";
     std::cout << "Metro lines Menu" << std::endl;
-    //std::cout << "\ta. Add Station" << std::endl;
-    std::cout << "\tb. Remove Station" << std::endl;
     std::cout << "\tc. Search for a Station" << std::endl;
-    std::cout << "\td. Clear Line" << std::endl;
     std::cout << "\te. Print Metro Lines" << std::endl;
     std::cout << "\tf. Print Metro Map" << std::endl;
     std::cout << "\tq. Quit program" << std::endl;
