@@ -1,35 +1,35 @@
 -Rosa
-observatorio,100,150,
-tacubaya,160,200
-juanacatlan,180,220
-chapultepec,180,320
-sevilla,185,340
-insurgentes,178
-cuauhtemoc
-balderas
-salto del agua
-isabel la catolica
-pino suarez
-merced
-candelaria
-san lazaro
-moctezuma
-balbuena
-puerto aereo
-gomez farias
-zaragoza
-pantitlan
+observatorio,100,300,
+tacubaya,190,280
+juanacatlan,230,200
+chapultepec,260,160
+sevilla,310,150
+insurgentes,380,140
+cuauhtemoc,450,130
+balderas,480,125
+salto del agua,530,128
+isabel la catolica,550,130
+pino suarez,570,135
+merced,630,128
+candelaria,680,125
+san lazaro,720,110
+moctezuma,770,128
+balbuena,820,146
+puerto aereo,870,164
+gomez farias,920,182
+zaragoza,970,200
+pantitlan,1030,185
 -Cafe
-tacubaya
-patriotismo
-chilpancingo
-centro medico
-lazaro cardenas
-chabacano
-jamaica
-mixhuca
-velodromo
-ciudad deportiva
-puebla
-pantitlan
+tacubaya,190,280
+patriotismo,260,260
+chilpancingo,340,260
+centro medico,440,258
+lazaro cardenas,520,255
+chabacano,580,252
+jamaica,680,249
+mixhuca,730,250
+velodromo,810,255
+ciudad deportiva,920,255
+puebla,990,265
+pantitlan,1030,185
 

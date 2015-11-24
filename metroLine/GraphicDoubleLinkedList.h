@@ -10,7 +10,7 @@
 #include <iostream>
 #include <iomanip>
 #include "GraphicDoubleNode.h"
-#define CIRCLE_RADIUS 20
+#define CIRCLE_RADIUS 5
 
 template <class T>
 class GraphicDoubleLinkedList
@@ -50,7 +50,7 @@ public:
     void printList();
     void clear();
     void moveCurrent();
-    int recursivePrintGraphical(GraphicDoubleNode<T> * node, sf::RenderWindow & window, const sf::Font & font);
+    int recursivePrintGraphical(GraphicDoubleNode<T> * node, sf::RenderWindow & window);
 };
 template <class T>
 void GraphicDoubleLinkedList<T>::moveCurrent()
@@ -483,16 +483,16 @@ void GraphicDoubleLinkedList<T>::clear()
 }
 
 template <class T>
-int GraphicDoubleLinkedList<T>::recursivePrintGraphical(GraphicDoubleNode<T> * node, sf::RenderWindow & window, const sf::Font & font)
+int GraphicDoubleLinkedList<T>::recursivePrintGraphical(GraphicDoubleNode<T> * node, sf::RenderWindow & window)
 {
     if(node != nullptr)
     {
-        node->configure(font, current==node?sf::Color::Yellow:color, CIRCLE_RADIUS);
+        node->configure(current==node?sf::Color::Yellow:color, CIRCLE_RADIUS);
         node->draw(window);
         if(node->getNext())
         {
             drawConnections(node,node->getNext(),window);
-            recursivePrintGraphical(static_cast<GraphicDoubleNode<T>*>(node->getNext()), window, font);
+            recursivePrintGraphical(static_cast<GraphicDoubleNode<T>*>(node->getNext()), window);
         }
         return 1;
     }
