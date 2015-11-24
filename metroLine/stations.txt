@@ -1,35 +1,35 @@
 -Rosa
-observatorio,100,300,
-tacubaya,190,280
-juanacatlan,230,200
-chapultepec,260,160
-sevilla,310,150
-insurgentes,380,140
-cuauhtemoc,450,130
-balderas,480,125
-salto del agua,530,128
-isabel la catolica,550,130
-pino suarez,570,135
-merced,630,128
-candelaria,680,125
-san lazaro,720,110
-moctezuma,770,128
-balbuena,820,146
-puerto aereo,870,164
-gomez farias,920,182
-zaragoza,970,200
-pantitlan,1030,185
+Observatorio,100,300,
+Tacubaya,190,280
+Juanacatlan,230,200
+Chapultepec,260,160
+Sevilla,310,150
+Insurgentes,380,140
+Cuauhtemoc,450,130
+Balderas,480,125
+Salto Del Agua,530,128
+Isabel La Catolica,550,130
+Pino Suarez,570,135
+Merced,630,128
+Candelaria,680,125
+San Lazaro,720,110
+Moctezuma,770,128
+Balbuena,820,146
+Puerto Aereo,870,164
+Gomez Farias,920,182
+Zaragoza,970,200
+Pantitlan,1030,185
 -Cafe
-tacubaya,190,280
-patriotismo,260,260
-chilpancingo,340,260
-centro medico,440,258
-lazaro cardenas,520,255
-chabacano,580,252
-jamaica,680,249
-mixhuca,730,250
-velodromo,810,255
-ciudad deportiva,920,255
-puebla,990,265
-pantitlan,1030,185
+Tacubaya,190,280
+Patriotismo,260,260
+Chilpancingo,340,260
+Centro Medico,440,258
+Lazaro Cardenas,520,255
+Chabacano,580,252
+Jamaica,680,249
+Mixhuca,730,250
+Velodromo,810,255
+Ciudad Deportiva,920,255
+Puebla,990,265
+Pantitlan,1030,185
 
