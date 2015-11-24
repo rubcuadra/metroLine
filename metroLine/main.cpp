@@ -102,10 +102,10 @@ int GUIChoice()
 {
     std::string ans = "0";
     std::cout << "Metro lines Menu" << std::endl;
-    std::cout << "\tc. Search for a Station" << std::endl;
-    std::cout << "\te. Print Metro Lines" << std::endl;
-    std::cout << "\tf. Print Metro Map" << std::endl;
-    std::cout << "\tq. Quit program" << std::endl;
+    std::cout << "\ta) Search for a Station" << std::endl;
+    std::cout << "\tb) Print Metro Lines" << std::endl;
+    std::cout << "\tc) Print Metro Map" << std::endl;
+    std::cout << "\td) Quit program" << std::endl;
     std::cout << "Select an option: ";
     std::cin >> ans;
     return ans.length()==1?ans[0]:'0';
@@ -210,28 +210,23 @@ void main_menu()
         choice = GUIChoice();
         switch (choice)
         {
-            case 'b': //Remove Station
+            case 'a': //SearchForStation
                 break;
-            case 'c': //SearchForStation
-                break;
-            case 'd': //ClearLine
-                break;
-            case 'e': //Print Metro Lines
+            case 'b': //Print Metro Lines
                 for (int i=0; i<totalLines; ++i)
                     metroCDMX[i].printList();
                 break;
-            case 'f': //Print Metro Map
+            case 'c': //Print Metro Map
                 Draw(metroCDMX,totalLines);
                 break;
-            case 'g': //Quit
-                break;
-            case 'q':
+            case 'd': //Quit
+                std::cout << "Goodbye!" << std::endl;
                 break;
             default:
                 std::cout << "Incorrect option. Try again ..." << std::endl;
                 break;
         }
-    }while (choice != 'q');
+    }while (choice != 'd');
 }
     
 int main()
