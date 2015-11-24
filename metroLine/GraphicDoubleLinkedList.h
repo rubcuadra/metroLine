@@ -454,8 +454,6 @@ template <class T>
 void GraphicDoubleLinkedList<T>::printList()
 {
     GraphicDoubleNode<T> * item;
-    int counter = 0;
-    
     item = this->head;
     while (item != nullptr)
     {

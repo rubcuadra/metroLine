@@ -418,12 +418,10 @@ bool DoubleLinkedList<T>::searchFor(const T & search_data)
     // Test to identify which way to search
     else if (search_data > this->current->getData())
     {
-        std::cout << "Searching forward" << std::endl;
         while (this->current != nullptr)
         {
             if (search_data == this->current->getData())
             {
-                std::cout << "Found after " << count << " checks." << std::endl;
                 return true;
             }
             this->current = static_cast<DoubleNode<T>*>(this->current->getNext());
@@ -436,12 +434,10 @@ bool DoubleLinkedList<T>::searchFor(const T & search_data)
     }
     else if (search_data < this->current->getData())
     {
-        std::cout << "Searching backwards" << std::endl;
         while (this->current != nullptr)
         {
             if (search_data == this->current->getData())
             {
-                std::cout << "Found after " << count << " checks." << std::endl;
                 return true;
             }
             this->current = this->current->getPrevious();
@@ -484,7 +480,6 @@ void DoubleLinkedList<T>::clear()
     item = this->head;
     while (item != nullptr)
     {
-        std::cout << "Deleting item " << item->getData() << std::endl;
         this->head = static_cast<DoubleNode<T>*>(item->getNext());
         delete item;
         item = this->head;

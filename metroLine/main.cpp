@@ -42,7 +42,7 @@ void Draw(GraphicDoubleLinkedList<std::string> * metroCDMX, int length)
     sf::Text text;
     text.setFont(font);
     text.setString("CDMX Metro Map\n Press Space to move trains");
-    text.setCharacterSize(12);
+    text.setCharacterSize(20);
     text.setColor(sf::Color::Black);
     text.setPosition(30, 30);
     sf::Text lineOneText;
@@ -54,7 +54,7 @@ void Draw(GraphicDoubleLinkedList<std::string> * metroCDMX, int length)
     lineTwoText.setFont(font);
     lineTwoText.setCharacterSize(12);
     lineTwoText.setColor(brown);
-    lineTwoText.setPosition(100, 400);
+    lineTwoText.setPosition(30, 420);
     //load font
     if (!font.loadFromFile("sansation.ttf"))
         std::cout << "Could not load font!\n" << std::endl;
@@ -62,23 +62,18 @@ void Draw(GraphicDoubleLinkedList<std::string> * metroCDMX, int length)
     //window loop
     while (window.isOpen())
     {
-        //use sfml events to catch space key press
         sf::Event event;
         while (window.pollEvent(event))
         {
             switch (event.type)
             {
-                //close window on close event
                 case sf::Event::Closed:
                     window.close();
                     break;
-                //catch event when key is pressed
                 case sf::Event::KeyPressed:
                     if (event.key.code == sf::Keyboard::Space) //Space moves current
-                    {
                         for (int i=0;i<length;++i)
                             metroCDMX[i].moveCurrent();
-                    }
                     break;
                 case sf::Event::KeyReleased:
                     break;
@@ -86,7 +81,6 @@ void Draw(GraphicDoubleLinkedList<std::string> * metroCDMX, int length)
                     break;
             }
         }
-        //draw and siplay window
         window.clear(sf::Color::White);
         window.draw(text);
         for (int i = 0; i<length; ++i)
