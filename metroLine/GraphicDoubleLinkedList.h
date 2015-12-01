@@ -404,49 +404,16 @@ void GraphicDoubleLinkedList<T>::removeNode(GraphicDoubleNode<T> item)
 template <class T>
 bool GraphicDoubleLinkedList<T>::searchFor(const T & search_data)
 {
-    int count = 0;
     if (this->head == nullptr)
         return false;
-    if (this->current == nullptr)
-        this->current = this->head;
-    if (search_data == this->current->getData())
-        return true;
-    else if (search_data > this->current->getData())
+    this->current = this->head;
+    while (this->current != nullptr)
     {
-        std::cout << "Searching forward" << std::endl;
-        while (this->current != nullptr)
-        {
-            if (search_data == this->current->getData())
-            {
-                std::cout << "Found after " << count << " checks." << std::endl;
-                return true;
-            }
-            this->current = static_cast<GraphicDoubleNode<T>*>(this->current->getNext());
-            count++;
-        }
-        if (this->current == nullptr)
-        {
-            this->current = this->tail;
-        }
+        if (search_data == this->current->getData())
+            return true;
+        this->current = static_cast<GraphicDoubleNode<T>*>(this->current->getNext());
     }
-    else if (search_data < this->current->getData())
-    {
-        std::cout << "Searching backwards" << std::endl;
-        while (this->current != nullptr)
-        {
-            if (search_data == this->current->getData())
-            {
-                std::cout << "Found after " << count << " checks." << std::endl;
-                return true;
-            }
-            this->current = this->current->getPrevious();
-            count++;
-        }
-        if (this->current == nullptr)
-        {
-            this->current = this->head;
-        }
-    }
+    this->current=this->head;
     return false;
 }
 

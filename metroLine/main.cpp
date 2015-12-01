@@ -203,14 +203,34 @@ void main_menu()
     GraphicDoubleLinkedList<std::string> * metroCDMX = new GraphicDoubleLinkedList<std::string>[totalLines];
     metroCDMX[0] = lineOne;
     metroCDMX[1] = lineTwo;
-
-    int choice;
+    std::string stationToSearch;
+    int choice;bool stationSearch;
     do
     {
         choice = GUIChoice();
         switch (choice)
         {
             case 'a': //SearchForStation
+                stationSearch=false;
+                std::cout<<"Que estacion desea buscar?\n";
+                std::cin>>stationToSearch;
+                for (int i=0; i<totalLines; ++i)
+                {
+                    if(metroCDMX[i].searchFor(stationToSearch))
+                    {
+                        std::string msg="La estacion "+stationToSearch+" se encuentra en la linea "+std::to_string(i+1);
+                        GraphicDoubleNode<std::string> *temp= metroCDMX[i].getCurrent();
+                        if (temp->getPrevious())
+                            msg= msg+" despues de la estacion "+temp->getPrevious()->getData()+" y"+(temp->getNext()?"":"es la ultima estacion");
+                        if (temp->getNext())
+                            msg= msg+" antes de la estacion "+temp->getNext()->getData();
+                        stationSearch=true;
+                        msg=msg+"\nSeleccione la opcion 'C' para ver la estacion en el mapa";
+                        std::cout<<msg;
+                        break;
+                    }
+                }
+                std::cout<<(stationSearch?"\n":"No se encontro ninguna estacion con ese nombre\n");
                 break;
             case 'b': //Print in console
                 std::cout<<"\n";
