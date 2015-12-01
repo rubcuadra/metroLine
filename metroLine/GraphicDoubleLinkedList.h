@@ -473,7 +473,6 @@ void GraphicDoubleLinkedList<T>::clear()
     item = this->head;
     while (item != nullptr)
     {
-        std::cout << "Deleting item " << item->getData() << std::endl;
         this->head = static_cast<GraphicDoubleNode<T>*>(item->getNext());
         delete item;
         item = this->head;
